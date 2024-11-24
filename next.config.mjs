@@ -5,7 +5,8 @@ const nextConfig = {
         'i.ibb.co', 
         'i.ibb.co.com',
         'readymadeui.com',
-        'source.unsplash.com'
+        'source.unsplash.com',
+        'loremflickr.com'
     ],
     },
   };

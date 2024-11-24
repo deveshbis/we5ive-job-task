@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import React from 'react'
 import { FiArrowUpRight } from "react-icons/fi";
+import ButtonPrimary from '../ButtonPrimary/ButtonPrimary';
 
 const Banner = () => {
     return (
@@ -27,21 +28,9 @@ const Banner = () => {
                         Discover the Latest Trends in Sustainable Fashion
                     </p>
 
-                    <div className="mt-8 flex flex-wrap gap-4 text-center justify-center">
-                        <a
-                            href="#"
-                            className="block w-full rounded-full bg-[#7436F1] px-12 py-3 text-sm font-medium text-white shadow hover:bg-[#7436F1] focus:outline-none focus:ring active:bg-[#7436F1] sm:w-auto"
-                        >
-                            Shop Now
-                        </a>
+                    {/* <div className="mt-8 flex flex-wrap gap-4 text-center justify-center"> */}
+                    <ButtonPrimary />
 
-                        <a
-                            href="#"
-                            className="block w-full rounded-full bg-[#7436F1] px-3 py-2 text-3xl font-medium text-white shadow hover:text-white focus:outline-none focus:ring active:text-[#7436F1] sm:w-auto"
-                        >
-                            <FiArrowUpRight />
-                        </a>
-                    </div>
                 </div>
             </div>
         </section>
