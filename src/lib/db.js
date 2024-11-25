@@ -1,0 +1,1 @@
+export const connectionStr="mongodb+srv://we5ive:<db_password>@cluster0.zhnae.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
