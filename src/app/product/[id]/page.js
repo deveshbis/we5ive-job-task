@@ -23,6 +23,7 @@ const Page = ({ params }) => {
 
     const [quantity, setQuantity] = useState(1);
     const [cartCount, setCartCount] = useState(0);
+    
 
     // Function to handle adding products to the cart
     const addToCart = () => {

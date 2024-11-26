@@ -42,6 +42,8 @@ const SummerBigDeal = () => {
         <div className='mt-5 p-5 max-w-7xl mx-auto'>
             <div className='flex items-center justify-between'>
                 <SectionTitle subHeader={"SUMMER"} mainHeader={"Big Deal"} />
+                <h2 className='text-purple-800 text-2xl font-bold italic flex'>Up to 40%</h2>
+                
                 <div className="flex space-x-2"> {/* space-x-2 will add a small horizontal gap */}
                     <button className="btn btn-circle border-2 border-[#7E53D4] rounded-full" onClick={prevSlide}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
@@ -73,6 +75,7 @@ const SummerBigDeal = () => {
 
             {/* Mobile Slider Layout */}
             <div className="lg:hidden flex space-x-4 overflow-hidden">
+
                 {productsToDisplay.map((item, index) => (
                     <div key={index} className="flex-shrink-0">
                         <ProductCard
