@@ -1,6 +1,7 @@
 "use client"
 
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useState } from 'react';
 const Header = ({ cartCount }) => {
     // State to manage the collapse menu visibility
@@ -11,16 +12,16 @@ const Header = ({ cartCount }) => {
     };
 
     return (
-        <header className="flex bg-white border-b py-4 sm:px-8 px-6 font-[sans-serif] min-h-[80px] tracking-wide relative z-50">
+        <header className="flex bg-white border-b py-4 sm:px-8 px-6 font-[sans-serif] min-h-[80px] tracking-wide z-20 fixed w-full shadow-md">
             <div className="flex flex-wrap items-center lg:gap-y-2 gap-4 w-full">
-                <a href="javascript:void(0)">
+                <Link href="/">
                     <Image
                         src='https://i.ibb.co.com/XFmyWVY/logo.png'
                         alt="logo"
                         className="w-36"
                         width={144} height={36}
                     />
-                </a>
+                </Link>
 
                 {/* Collapse Menu */}
                 <div
@@ -48,22 +49,22 @@ const Header = ({ cartCount }) => {
 
                     <ul className="lg:flex lg:gap-x-6 lg:justify-center lg:items-center max-lg:space-y-3 max-lg:fixed max-lg:bg-white max-lg:w-full max-lg:min-w-[300px] max-lg:top-0 max-lg:left-0 max-lg:p-6 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto z-50">
                         <li className="mb-6 hidden max-lg:block">
-                            <a href="javascript:void(0)">
+                            <Link href="/">
                                 <Image
                                     src='https://i.ibb.co.com/XFmyWVY/logo.png'
                                     alt="logo"
                                     className="w-36"
                                     width={144} height={36}
                                 />
-                            </a>
+                            </Link>
                         </li>
                         <li className="max-lg:border-b max-lg:py-3 px-3 lg:py-0">
-                            <a
-                                href="javascript:void(0)"
+                            <Link
+                                href="/"
                                 className="text-[#007bff] hover:text-[#007bff] text-[15px] block font-semibold"
                             >
                                 Home
-                            </a>
+                            </Link>
                         </li>
                         <li className="max-lg:border-b max-lg:py-3 px-3 lg:py-0">
                             <a

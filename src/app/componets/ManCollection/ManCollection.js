@@ -6,10 +6,10 @@ import ButtonPrimary from '../ButtonPrimary/ButtonPrimary'
 
 const ManCollection = () => {
     return (
-        <div className="bg-white font-[sans-serif] p-6 mt-6">
-            <div className="grid md:grid-cols-2 items-center gap-10 max-w-5xl max-md:max-w-md mx-auto">
-                <div className="bg-[#EEECFB]">
-                    <Image width={468} height={566} src="https://i.ibb.co.com/SQ6939Q/portrait-handsome-smiling-stylish-young-man-model-wearing-jeans-clothes-sunglasses-fashion-man-1.png" className="w-[370px] h-[400px] rounded-md object-cover" alt='Man' />
+        <div className="bg-white font-[sans-serif] mt-6 max-w-7xl mx-auto">
+            <div className="grid md:grid-cols-2 items-center gap-10 ">
+                <div className="bg-[#EEECFB] ">
+                    <Image width={468} height={566} src="https://i.ibb.co.com/SQ6939Q/portrait-handsome-smiling-stylish-young-man-model-wearing-jeans-clothes-sunglasses-fashion-man-1.png" className="w-[370px] h-[400px] rounded-md object-cover max-w-5xl max-md:max-w-md mx-auto" alt='Man' />
                 </div>
 
                 <div className="max-md:text-center">

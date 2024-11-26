@@ -1,12 +1,12 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import SectionTitle from '../SectionTitle/SectionTitle'
 import ArrowButton from '../ArrowButton/ArrowButton'
 import { product_data } from '@/app/Assets/assets'
 import ProductCard from '../ProductCard/ProductCard'
 
 const SummerBigDeal = () => {
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState(product_data);  // Initialize with product_data directly
     const [visibleProducts, setVisibleProducts] = useState(8);
     const [showAll, setShowAll] = useState(false);
 
@@ -21,7 +21,7 @@ const SummerBigDeal = () => {
     };
 
     return (
-        <div className='mt-5 p-5'>
+        <div className='mt-5 p-5 max-w-7xl mx-auto'>
             <div className='flex items-center justify-between'>
                 <SectionTitle subHeader={"SUMMER"} mainHeader={"Big Deal"} />
                 <ArrowButton />
@@ -29,9 +29,15 @@ const SummerBigDeal = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {
-                    product_data.map((item, index)=>{
-                        return <ProductCard key={index} id={item.id} images={item.images} productName={item.productName} price={item.price}/>
-                    })
+                    products.slice(0, visibleProducts).map((item, index) => (
+                        <ProductCard 
+                            key={index} 
+                            id={item.id} 
+                            images={item.images} 
+                            productName={item.productName} 
+                            price={item.price}
+                        />
+                    ))
                 }
             </div>
 
@@ -57,3 +63,4 @@ const SummerBigDeal = () => {
 };
 
 export default SummerBigDeal;
+

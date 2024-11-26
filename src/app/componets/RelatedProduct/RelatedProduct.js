@@ -36,7 +36,7 @@ const RelatedProduct = () => {
   const productsToDisplay = products.slice(0, visibleProducts)
 
   return (
-    <div className='mb-3'>
+    <div className='mb-3 max-w-7xl mx-auto'>
       <div className='flex items-center justify-between'>
         <SectionTitle mainHeader={"Related Product"}></SectionTitle>
         <ArrowButton />

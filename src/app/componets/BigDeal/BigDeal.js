@@ -3,7 +3,7 @@ import ButtonPrimary from '../ButtonPrimary/ButtonPrimary'
 
 const BigDeal = () => {
     return (
-        <div className="flex mt-6 px-6 md:px-20 items-center justify-center bg-hero overflow-hidden bg-[#EEECFB]">
+        <div className="flex mt-6 px-6 md:px-20 items-center justify-center bg-hero overflow-hidden bg-[#EEECFB] max-w-7xl mx-auto">
             <div className="flex flex-col gap-6 md:flex-row items-center max-w-8xl">
                 <div className="w-full md:w-2/3 lg:pr-32">
                     <h2 className="text-md lg:text-xl text-center md:text-left text-[#6F42C1] font-light tracking-wider leading-relaxed italic" >Big Deal</h2>

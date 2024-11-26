@@ -6,7 +6,7 @@ const Footer = () => {
         <footer className="font-sans tracking-wide bg-[#27282b] py-12 px-16">
             <div className="grid max-md-grid-cols-1 lg:grid-cols-2 gap-20">
                 <div>
-                <Image
+                    <Image
                         src='https://i.ibb.co.com/sbJDT3c/logo-Footer.png'
                         alt="logo"
                         className="w-36"
