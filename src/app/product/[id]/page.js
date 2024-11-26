@@ -400,12 +400,12 @@ const Page = ({ params }) => {
                         </div>
 
                     </div >
-                    <div>
+                    <div className="md:block hidden"> {/* Hide the button on mobile (by default) */}
                         <button type="button"
                             className="px-5 py-10 flex items-center justify-center gap-2 rounded-l-3xl text-white text-sm tracking-wider font-medium border-none outline-none bg-purple-600 hover:bg-purple-700 active:bg-purple-600">
-                            <IoBagOutline  className='text-2xl font-bold'/>
-                           Your Bag <br/> 
-                           0
+                            <IoBagOutline className='text-2xl font-bold' />
+                            Your Bag <br />
+                            0 {/* Quantity goes here */}
                         </button>
                     </div>
 
