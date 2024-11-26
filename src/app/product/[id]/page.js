@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client"
 import { product_data } from '@/app/Assets/assets'
+import RelatedProduct from '@/app/componets/RelatedProduct/RelatedProduct'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 
@@ -10,6 +11,14 @@ const Page = ({ params }) => {
 
     const [data, setData] = useState(null);
     const [activeTab, setActiveTab] = useState('description');
+
+    // State to keep track of selected size and color
+    const [selectedSize, setSelectedSize] = useState('');
+    const [selectedColor, setSelectedColor] = useState(null); // Track selected color
+    const colors = ['#000000', '#9CA3AF', '#FB923C', '#F87171']; // Array of colors
+
+    // Arrays to store available sizes and colors
+    const sizes = ['SM', 'MD', 'LG', 'XL'];
 
     const fetchProductData = () => {
         for (let i = 0; i < product_data.length; i++) {
@@ -30,6 +39,15 @@ const Page = ({ params }) => {
         setActiveTab(tab);
     }
 
+    // Handle size selection
+    const handleSizeClick = (size) => {
+        setSelectedSize(size);
+    };
+
+    // Handle color selection
+
+
+
     if (!data) {
         return <div>Loading...</div>;
     }
@@ -41,22 +59,22 @@ const Page = ({ params }) => {
                 <div className="grid items-start grid-cols-1 lg:grid-cols-2 gap-8 max-lg:gap-16">
                     <div className="w-full lg:sticky top-0 text-center">
                         <div className="lg:h-[560px]">
-                            <Image width={600} height={600} src={data.images} alt="Product" className="lg:w-11/12 w-full h-full rounded-md object-cover object-top" />
+                            <Image width={400} height={400} src={data.images} alt="Product" className="lg:w-11/12 w-[500px] h-[500px] rounded-md object-cover object-top" />
                         </div>
 
                         <div className="flex flex-wrap gap-4 justify-center mx-auto mt-4">
-                            <Image width={600} height={600} src="https://readymadeui.com/images/product6.webp" alt="Product1" className="w-16 cursor-pointer rounded-md outline" />
-                            <Image width={600} height={600} src="https://readymadeui.com/images/product8.webp" alt="Product2" className="w-16 cursor-pointer rounded-md" />
-                            <Image width={600} height={600} src="https://readymadeui.com/images/product5.webp" alt="Product3" className="w-16 cursor-pointer rounded-md" />
-                            <Image width={600} height={600} src="https://readymadeui.com/images/product7.webp" alt="Product4" className="w-16 cursor-pointer rounded-md" />
+                            <Image width={600} height={600} src={data.images} alt="Product1" className="w-16 cursor-pointer rounded-md outline" />
+                            <Image width={600} height={600} src={data.images} alt="Product2" className="w-16 cursor-pointer rounded-md" />
+                            <Image width={600} height={600} src={data.images} alt="Product3" className="w-16 cursor-pointer rounded-md" />
+                            <Image width={600} height={600} src={data.images} alt="Product4" className="w-16 cursor-pointer rounded-md" />
                         </div>
                     </div>
 
                     <div>
                         <div className="flex flex-wrap items-start gap-4">
                             <div>
-                                <h2 className="text-2xl font-bold text-gray-800">Adjective Attire | T-shirt</h2>
-                                <p className="text-sm text-gray-500 mt-2">Well-Versed Commerce</p>
+                                <h2 className="text-2xl font-bold text-gray-800">{data.productName}</h2>
+                                <p className="text-sm text-gray-500 mt-2">We5ive Commerce</p>
                             </div>
 
                             <div className="ml-auto flex flex-wrap gap-4">
@@ -82,8 +100,8 @@ const Page = ({ params }) => {
 
                         <div className="flex flex-wrap gap-4 items-start">
                             <div>
-                                <p className="text-gray-800 text-4xl font-bold">$30</p>
-                                <p className="text-gray-500 text-sm mt-2"><strike>$42</strike> <span className="text-sm ml-1">Tax included</span></p>
+                                <p className="text-gray-800 text-4xl font-bold">{data.price}</p>
+
                             </div>
 
                             <div className="flex flex-wrap gap-4 ml-auto">
@@ -111,10 +129,17 @@ const Page = ({ params }) => {
                         <div>
                             <h3 className="text-xl font-bold text-gray-800">Choose a Size</h3>
                             <div className="flex flex-wrap gap-4 mt-4">
-                                <button type="button" className="w-10 h-10 border hover:border-gray-800 font-semibold text-sm rounded-md flex items-center justify-center shrink-0">SM</button>
-                                <button type="button" className="w-10 h-10 border hover:border-gray-800 border-gray-800 font-semibold text-sm rounded-md flex items-center justify-center shrink-0">MD</button>
-                                <button type="button" className="w-10 h-10 border hover:border-gray-800 font-semibold text-sm rounded-md flex items-center justify-center shrink-0">LG</button>
-                                <button type="button" className="w-10 h-10 border hover:border-gray-800 font-semibold text-sm rounded-md flex items-center justify-center shrink-0">XL</button>
+                                {sizes.map((size) => (
+                                    <button
+                                        key={size}
+                                        type="button"
+                                        className={`w-10 h-10 border font-semibold text-sm rounded-md flex items-center justify-center shrink-0 ${selectedSize === size ? 'border-gray-800' : 'hover:border-gray-800'
+                                            }`}
+                                        onClick={() => handleSizeClick(size)}
+                                    >
+                                        {size}
+                                    </button>
+                                ))}
                             </div>
                         </div>
 
@@ -123,10 +148,15 @@ const Page = ({ params }) => {
                         <div>
                             <h3 className="text-xl font-bold text-gray-800">Choose a Color</h3>
                             <div className="flex flex-wrap gap-4 mt-4">
-                                <button type="button" className="w-10 h-10 bg-black border border-white hover:border-gray-800 rounded-md shrink-0"></button>
-                                <button type="button" className="w-10 h-10 bg-gray-400 border border-white hover:border-gray-800 rounded-md shrink-0"></button>
-                                <button type="button" className="w-10 h-10 bg-orange-400 border border-white hover:border-gray-800 rounded-md shrink-0"></button>
-                                <button type="button" className="w-10 h-10 bg-red-400 border border-white hover:border-gray-800 rounded-md shrink-0"></button>
+                                {colors.map(color => (
+                                    <button
+                                        key={color}
+                                        type="button"
+                                        className={`w-10 h-10 rounded-md shrink-0 ${selectedColor === color ? 'border-2 border-black' : 'border border-white'}`}
+                                        style={{ backgroundColor: color }}
+                                        onClick={() => setSelectedColor(color)} // Update the selected color
+                                    ></button>
+                                ))}
                             </div>
                         </div>
 
@@ -169,7 +199,7 @@ const Page = ({ params }) => {
                                         <p>{data?.description}</p>
                                         <div className="mt-8">
                                             <p className="text-sm text-gray-500 mt-4">
-                                                Elevate your casual style with our premium men's t-shirt. Crafted for comfort and designed with a modern fit, this versatile shirt is an essential addition to your wardrobe. The soft and breathable fabric ensures all-day comfort, making it perfect for everyday wear. Its classic crew neck and short sleeves offer a timeless look.
+                                                Elevate your casual style with our premium mens t-shirt. Crafted for comfort and designed with a modern fit, this versatile shirt is an essential addition to your wardrobe. The soft and breathable fabric ensures all-day comfort, making it perfect for everyday wear. Its classic crew neck and short sleeves offer a timeless look.
                                             </p>
                                         </div>
 
@@ -283,6 +313,7 @@ const Page = ({ params }) => {
                 </div>
 
             </div >
+            <RelatedProduct />
         </div >
     )
 }
