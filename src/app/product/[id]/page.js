@@ -21,6 +21,14 @@ const Page = ({ params }) => {
 
     const [quantity, setQuantity] = useState(1);
 
+    // State to track the cart count
+    const [cartCount, setCartCount] = useState(0);
+
+    // Function to handle adding products to the cart
+    const addToCart = () => {
+        setCartCount(cartCount + 1);  // Increment the cart count
+    };
+
     // Function to handle the decrease action
     const handleDecrease = () => {
         if (quantity > 1) {
@@ -71,7 +79,7 @@ const Page = ({ params }) => {
 
     return (
         <div>
-            <Header />
+            <Header cartCount={cartCount}/>
             <div className="font-sans bg-white">
                 <div className="p-4 lg:max-w-7xl max-w-4xl mx-auto">
                     <div className="grid items-start grid-cols-1 lg:grid-cols-2 gap-8 max-lg:gap-16">
@@ -227,7 +235,7 @@ const Page = ({ params }) => {
 
                             <div className="flex flex-wrap gap-4">
                                 <button type="button" className="min-w-[200px] px-4 py-3 bg-gray-800 hover:bg-gray-900 text-white text-sm font-semibold rounded-md">Buy now</button>
-                                <button type="button" className="min-w-[200px] px-4 py-2.5 border border-gray-800 bg-transparent hover:bg-gray-50 text-gray-800 text-sm font-semibold rounded-md">Add to cart</button>
+                                <button type="button" onClick={addToCart} className="min-w-[200px] px-4 py-2.5 border border-gray-800 bg-transparent hover:bg-gray-50 text-gray-800 text-sm font-semibold rounded-md">Add to cart</button>
                             </div>
                         </div>
                     </div>
